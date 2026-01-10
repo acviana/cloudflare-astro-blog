@@ -1,12 +1,12 @@
 # Cloudflare Astro Blog
 
-This is an Astro blog using the Astro Paper template, configured for deployment to Cloudflare Workers (SSR mode).
+This is an Astro blog using the Astro Paper template, configured for deployment to Cloudflare Pages as a static site.
 
 ## Project Structure
 
-- **Framework**: Astro 5.x with SSR (Server-Side Rendering)
+- **Framework**: Astro 5.x with static site generation
 - **Template**: Astro Paper theme
-- **Deployment**: Cloudflare Workers via `@astrojs/cloudflare` adapter
+- **Deployment**: Cloudflare Pages (static)
 - **Styling**: Tailwind CSS 4.x
 - **Content**: Markdown blog posts in `src/data/blog/`
 
@@ -17,13 +17,15 @@ This is an Astro blog using the Astro Paper template, configured for deployment 
 - Schema defined in `src/content.config.ts`
 - Posts require: `author`, `pubDatetime`, `title`, `slug`, `draft`, `tags`, `description`
 
-### Routing (SSR Mode)
-- Individual posts: `/posts/[slug].astro` → `/posts/{slug}`
-- Paginated list: `/posts/page/[page].astro` → `/posts/page/1`, `/posts/page/2`, etc.
+### Routing (Static Mode)
+- Individual posts: `/posts/[slug].astro` → `/posts/{slug}` (uses `getStaticPaths()`)
+- Paginated list: `/posts/page/[page].astro` → `/posts/page/1`, `/posts/page/2`, etc. (uses `getStaticPaths()`)
 - Posts index: `/posts/index.astro` → redirects to `/posts/page/1`
-- Tags: `/tags/[tag]/[...page].astro` → `/tags/{tag}/1`, `/tags/{tag}/2`, etc.
+- Tags: `/tags/[tag]/[...page].astro` → `/tags/{tag}/1`, `/tags/{tag}/2`, etc. (uses `getStaticPaths()`)
 
-**Important**: The pagination route is at `/posts/page/[page]` (not `/posts/[page]`) to avoid route collisions with post slugs.
+**Important**: 
+- The pagination route is at `/posts/page/[page]` (not `/posts/[page]`) to avoid route collisions with post slugs
+- All dynamic routes require `getStaticPaths()` for static builds
 
 ### LaTeX Support
 - Uses `remark-math` and `rehype-katex`
@@ -37,16 +39,24 @@ This is an Astro blog using the Astro Paper template, configured for deployment 
 
 ## Important Notes
 
-### SSR vs Static
-This project uses SSR mode (`output: "server"`), which means:
-- Pages are rendered on-demand, not pre-built
-- `getStaticPaths()` is not used in dynamic routes
-- Pagination and post routing is handled dynamically at runtime
+### Static Site Generation
+This project uses static site generation (`output: "static"`), which means:
+- All pages are pre-built at build time
+- All dynamic routes require `getStaticPaths()` functions
+- No server-side rendering or Workers required
 
-### Cloudflare Workers Limitations
-- No dynamic OG image generation (requires Node.js native modules)
-- No sharp for image optimization at runtime
-- `imageService: "noop"` configured in `astro.config.ts`
+### Why Static Instead of SSR?
+Initially configured for SSR with Cloudflare Workers, but switched to static because:
+- Simpler deployment (no Workers runtime configuration needed)
+- Better performance (pre-built HTML)
+- No need for `nodejs_compat` flag or Node.js module handling
+- Blog content doesn't require on-demand rendering
+- Avoids Worker bundle size limits with large content collections
+
+### Cloudflare Pages Configuration
+- `wrangler.toml` includes `nodejs_compat` flag and SESSION KV binding (for future SSR if needed)
+- Currently deployed as static site, so these settings are not actively used
+- `astro.config.ts` includes Vite SSR externals for Node.js modules (not used in static mode)
 
 ### Frontmatter Format
 Posts migrated from Next.js blog use this frontmatter:
@@ -74,24 +84,98 @@ npm run preview # Preview production build
 
 ## Deployment
 
-Deploy to Cloudflare Workers:
+### Initial Setup
 ```bash
-wrangler login
-wrangler deploy
+# Login to Cloudflare (interactive OAuth)
+npx wrangler login
+
+# Create the Pages project (one-time)
+npx wrangler pages project create cloudflare-astro-blog --production-branch=main
+
+# Optional: Create SESSION KV namespace for future SSR features
+npx wrangler kv namespace create "SESSION"
 ```
+
+### Deploy to Cloudflare Pages
+```bash
+# Build the site
+npm run build
+
+# Deploy to Cloudflare Pages
+npx wrangler pages deploy dist --project-name=cloudflare-astro-blog --branch=main --commit-dirty=true
+```
+
+### Wrangler Configuration
+The `wrangler.toml` file includes:
+- `nodejs_compat` compatibility flag (for future SSR support)
+- SESSION KV namespace binding (not used in static mode)
+- Project name and compatibility date
+
+### Custom Domain Setup
+1. Add custom domain in Cloudflare dashboard: Workers & Pages → cloudflare-astro-blog → Custom domains
+2. Update DNS records at your domain registrar to point to Cloudflare Pages
+3. Remove domain from previous hosting provider (e.g., Vercel)
+
+Current deployment: https://cloudflare-astro-blog.pages.dev
 
 ## Recent Changes
 
-1. **Route Structure**: Moved pagination from `/posts/[page]` to `/posts/page/[page]` to prevent route collisions
-2. **Search**: Implemented client-side search replacing Pagefind
-3. **LaTeX**: Added color overrides for better visibility
-4. **SSR Conversion**: Converted all dynamic routes from static to SSR mode
-5. **Card Component**: Updated to pass through data attributes for search functionality
+1. **Cloudflare Pages Deployment**: Configured for static site generation and deployed to Cloudflare Pages
+2. **Static Site Mode**: Switched from SSR (`output: "server"`) to static (`output: "static"`)
+3. **Dynamic Routes**: Added `getStaticPaths()` to all dynamic routes for static builds
+4. **Wrangler Setup**: Created `wrangler.toml` with Pages configuration and KV namespace
+5. **Route Structure**: Pagination at `/posts/page/[page]` to prevent route collisions
+6. **Search**: Client-side search implementation
+7. **LaTeX**: Added color overrides for better visibility
+8. **Card Component**: Updated to pass through data attributes for search functionality
 
 ## Configuration Files
 
-- `astro.config.ts` - Astro configuration with Cloudflare adapter
+- `astro.config.ts` - Astro configuration (static mode, Vite SSR externals for future SSR)
+- `wrangler.toml` - Cloudflare Pages configuration with nodejs_compat flag and KV binding
 - `src/content.config.ts` - Content collection schema
 - `src/config.ts` - Site configuration (SITE object)
 - `src/styles/global.css` - Global styles including KaTeX overrides
 - `transform-frontmatter.js` - Script used for migrating blog posts (one-time use)
+
+## Documentation References
+
+**IMPORTANT**: Before making major changes to deployment configuration, routing, or framework setup, always consult the official documentation:
+
+### Official Documentation
+- **Cloudflare Pages**: https://developers.cloudflare.com/pages/
+  - Framework guide for Astro: https://developers.cloudflare.com/pages/framework-guides/deploy-an-astro-site/
+  - Functions configuration: https://developers.cloudflare.com/pages/functions/wrangler-configuration/
+  - Node.js compatibility: https://developers.cloudflare.com/workers/runtime-apis/nodejs/
+
+- **Astro**: https://docs.astro.build/
+  - Cloudflare adapter: https://docs.astro.build/en/guides/integrations-guide/cloudflare/
+  - Deployment guide: https://docs.astro.build/en/guides/deploy/cloudflare/
+  - Static vs SSR: https://docs.astro.build/en/guides/on-demand-rendering/
+
+- **Astro Paper Theme**: https://github.com/satnaing/astro-paper
+  - Theme documentation and customization guide
+
+### Why This Matters
+During this project's setup, we initially configured for SSR mode based on assumptions, which led to 500 errors due to:
+- Large content collection bundles exceeding Worker limits
+- Missing Node.js compatibility configuration
+- Incorrect understanding of Cloudflare Pages vs Workers deployment
+
+Checking the official Cloudflare and Astro documentation revealed that **static site generation** is the recommended approach for blogs on Cloudflare Pages, avoiding these issues entirely.
+
+## Troubleshooting
+
+### If switching back to SSR mode
+If you need to switch back to SSR (`output: "server"`):
+1. Uncomment the Cloudflare adapter in `astro.config.ts`
+2. Remove `getStaticPaths()` from dynamic routes (they'll use on-demand rendering)
+3. Ensure `wrangler.toml` has `nodejs_compat` flag and `pages_build_output_dir = "./dist"`
+4. Deploy with `npx wrangler pages deploy dist`
+
+Note: SSR mode had issues with large content collections (924KB bundle) causing 500 errors on Cloudflare Workers.
+
+### Common Issues
+- **500 errors on Cloudflare**: Usually means Worker bundle too large or missing Node.js compatibility
+- **Missing pages after deploy**: Check that `getStaticPaths()` returns all required paths
+- **Build errors**: Ensure all dynamic routes have `getStaticPaths()` in static mode
