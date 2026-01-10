@@ -1,0 +1,77 @@
+---
+import { getCollection } from "astro:content";
+import Main from "@/layouts/Main.astro";
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import Card from "@/components/Card.astro";
+import Pagination from "@/components/Pagination.astro";
+import getUniqueTags from "@/utils/getUniqueTags";
+import getPostsByTag from "@/utils/getPostsByTag";
+import { SITE } from "@/config";
+
+const { tag, page: pageParam } = Astro.params;
+
+if (!tag) {
+  return Astro.redirect("/404");
+}
+
+const currentPage = pageParam ? parseInt(pageParam) : 1;
+
+const allPosts = await getCollection("blog");
+const tags = getUniqueTags(allPosts);
+const tagObj = tags.find(t => t.tag === tag);
+
+if (!tagObj) {
+  return Astro.redirect("/404");
+}
+
+const tagName = tagObj.tagName;
+const tagPosts = getPostsByTag(allPosts, tag);
+
+const totalPages = Math.ceil(tagPosts.length / SITE.postPerPage);
+const startIndex = (currentPage - 1) * SITE.postPerPage;
+const endIndex = startIndex + SITE.postPerPage;
+const paginatedPosts = tagPosts.slice(startIndex, endIndex);
+
+// Create page object compatible with Pagination component
+const page = {
+  data: paginatedPosts,
+  start: startIndex,
+  end: Math.min(endIndex, tagPosts.length) - 1,
+  size: SITE.postPerPage,
+  total: tagPosts.length,
+  currentPage: currentPage,
+  lastPage: totalPages,
+  url: {
+    current: `/tags/${tag}/${currentPage}`,
+    prev: currentPage > 1 ? `/tags/${tag}/${currentPage - 1}` : undefined,
+    next: currentPage < totalPages ? `/tags/${tag}/${currentPage + 1}` : undefined,
+    first: `/tags/${tag}/1`,
+    last: `/tags/${tag}/${totalPages}`,
+  },
+};
+
+// Handle invalid page numbers
+if (currentPage < 1 || currentPage > totalPages) {
+  return Astro.redirect("/404");
+}
+---
+
+<Layout title={`Tag: ${tagName} | ${SITE.title}`}>
+  <Header />
+  <Main
+    pageTitle={[`Tag:`, `${tagName}`]}
+    titleTransition={tag}
+    pageDesc={`All the articles with the tag "${tagName}".`}
+  >
+    <h1 slot="title" transition:name={tag}>{`Tag:${tag}`}</h1>
+    <ul>
+      {page.data.map(data => <Card {...data} />)}
+    </ul>
+  </Main>
+
+  <Pagination {page} />
+
+  <Footer noMarginTop={page.lastPage > 1} />
+</Layout>

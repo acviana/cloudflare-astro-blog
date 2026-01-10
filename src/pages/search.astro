@@ -1,0 +1,69 @@
+---
+import { getCollection } from "astro:content";
+import Main from "@/layouts/Main.astro";
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import Card from "@/components/Card.astro";
+import getSortedPosts from "@/utils/getSortedPosts";
+import { SITE } from "@/config";
+
+const posts = await getCollection("blog", ({ data }) => !data.draft);
+const sortedPosts = getSortedPosts(posts);
+---
+
+<Layout title={`Search | ${SITE.title}`}>
+  <Header />
+  <Main pageTitle="Search" pageDesc="Search posts by title or tags...">
+    <div class="mb-4">
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="Search posts..."
+        class="w-full rounded border border-border bg-background px-4 py-2 text-foreground focus:border-accent focus:outline-none"
+      />
+    </div>
+    <div id="searchResults">
+      <ul id="postList">
+        {sortedPosts.map(post => (
+          <Card {...post} data-title={post.data.title.toLowerCase()} data-tags={post.data.tags.join(" ").toLowerCase()} />
+        ))}
+      </ul>
+    </div>
+  </Main>
+  <Footer />
+</Layout>
+
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const searchInput = document.getElementById("searchInput") as HTMLInputElement;
+    const postList = document.getElementById("postList");
+    
+    if (!searchInput || !postList) return;
+
+    searchInput.addEventListener("input", (e) => {
+      const query = (e.target as HTMLInputElement).value.toLowerCase();
+      const posts = postList.querySelectorAll("li");
+      
+      posts.forEach((post) => {
+        const title = post.getAttribute("data-title") || "";
+        const tags = post.getAttribute("data-tags") || "";
+        const searchText = title + " " + tags;
+        
+        if (query === "" || searchText.includes(query)) {
+          (post as HTMLElement).style.display = "";
+        } else {
+          (post as HTMLElement).style.display = "none";
+        }
+      });
+    });
+
+    // Handle URL search parameter
+    const params = new URLSearchParams(window.location.search);
+    const searchQuery = params.get("q");
+    if (searchQuery) {
+      searchInput.value = searchQuery;
+      searchInput.dispatchEvent(new Event("input"));
+    }
+  });
+</script>
