@@ -17,12 +17,7 @@ import cloudflare from "@astrojs/cloudflare";
 // https://astro.build/config
 export default defineConfig({
   site: SITE.website,
-  output: "server",
-  adapter: cloudflare({
-    platformProxy: {
-      enabled: true,
-    },
-  }),
+  output: "static",
   integrations: [
     sitemap({
       filter: page => SITE.showArchives || !page.endsWith("/archives"),
@@ -56,6 +51,9 @@ export default defineConfig({
     plugins: [tailwindcss()],
     optimizeDeps: {
       exclude: ["@resvg/resvg-js"],
+    },
+    ssr: {
+      external: ["node:buffer", "node:fs", "node:path", "node:url", "node:module", "node:child_process", "node:stream", "node:os", "node:crypto", "fs", "path", "url", "module", "child_process"],
     },
   },
   image: {
