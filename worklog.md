@@ -4,6 +4,26 @@ This file tracks everything attempted during development - what worked and what 
 
 ## Saturday, January 10, 2026
 
+### Direct Links to Posts Page (23:25)
+
+**Problem:**
+- Even with instant redirect, clicking "Posts" link still triggered a redirect instead of directly loading the page
+- Unnecessary redirect when all internal links could point directly to `/posts/page/1`
+
+**Investigation:**
+- Found two places linking to `/posts`:
+  - `src/components/Header.astro` - Navigation menu "Posts" link
+  - `src/pages/index.astro` - "All Posts" button on homepage
+
+**Solution:**
+- Updated both links to point directly to `/posts/page/1`
+- Kept redirect in `astro.config.ts` as safety for external links/bookmarks
+- Now navigation is direct with no redirect delay
+
+**Result:**
+- Internal navigation: Direct page load (no redirect)
+- External/bookmarks to `/posts`: Instant redirect to `/posts/page/1`
+
 ### Posts Index Redirect Improvement (23:09)
 
 **Problem:**
