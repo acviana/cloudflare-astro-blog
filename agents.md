@@ -122,10 +122,10 @@ Current deployment: https://cloudflare-astro-blog.pages.dev
 ## Documentation for Agents
 
 ### Worklog
-The `worklog.md` file contains a chronological log of development work:
+The `worklog.md` file contains a **reverse chronological** log of development work (newest entries first):
 - **Purpose**: Track what was tried, what worked, and what didn't work
-- **Format**: Organized by date (section headings), with subsections for different features/issues
-- **Usage**: Agents should append to this file when:
+- **Format**: Organized by date (section headings in reverse chronological order), with subsections for different features/issues
+- **Usage**: Agents should **prepend** new entries to the top of each date section when:
   - Attempting new approaches or solutions
   - Discovering bugs and their fixes
   - Encountering blockers or limitations
@@ -133,6 +133,7 @@ The `worklog.md` file contains a chronological log of development work:
   - Learning lessons that would help future context rebuilding
 - **Detail Level**: Include enough context to understand the problem and solution, but avoid sensitive data
 - **Public**: Assume this file is publicly visible - no API keys, SSH keys, or credentials
+- **Important**: Add new entries at the TOP (most recent first) so the latest work is immediately visible
 
 ### Context Rebuilding
 When resuming work on this project, read:
