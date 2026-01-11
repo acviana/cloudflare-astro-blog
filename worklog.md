@@ -4,6 +4,34 @@ This file tracks everything attempted during development - what worked and what 
 
 ## Saturday, January 10, 2026
 
+### Add View Source Link to Footer (23:29)
+
+**Feature Request:**
+- Add a link to view the source code on GitHub from the main blog page
+
+**Implementation:**
+- Added `sourceCode` configuration to `src/config.ts`:
+  - `enabled`: true/false toggle
+  - `text`: "View Source"
+  - `url`: GitHub repository URL
+- Modified `src/components/Footer.astro` to display link after copyright
+- Link opens in new tab with security attributes (`target="_blank" rel="noopener noreferrer"`)
+
+**Result:**
+- "View Source" link appears in footer: `Copyright © 2026 | All rights reserved. | View Source`
+- Links to: https://github.com/acviana/cloudflare-astro-blog
+- Appears on all pages site-wide
+
+### Git Remote URL Update (23:26)
+
+**Issue:**
+- Git remote was pointing to old repository name `astro-cfworkers-blog`
+- GitHub was showing redirect warnings on push
+
+**Solution:**
+- Updated remote URL: `git remote set-url origin git@github.com:acviana/cloudflare-astro-blog.git`
+- Verified with `git fetch`
+
 ### Direct Links to Posts Page (23:25)
 
 **Problem:**

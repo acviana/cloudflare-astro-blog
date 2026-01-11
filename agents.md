@@ -121,6 +121,29 @@ Current deployment: https://cloudflare-astro-blog.pages.dev
 
 ## Documentation for Agents
 
+### Required Workflow Rules
+
+**CRITICAL**: Follow these rules for ALL changes to the project:
+
+1. **Always Update Worklog**:
+   - Update `worklog.md` for every significant change, feature, or fix
+   - Add entries at the TOP (reverse chronological order)
+   - Include problem, investigation, solution, and results
+
+2. **Always Ask Before Committing**:
+   - NEVER commit without explicit user approval
+   - Show what files changed and summarize the changes
+   - Ask: "Should I commit these changes?"
+
+3. **Always Ask About Documentation**:
+   - Before committing, ask: "Should I update the worklog and agents.md file?"
+   - Even if you think it's obvious, ask first
+
+4. **Always Ask Before Deploying**:
+   - NEVER run `npm run build` or `wrangler pages deploy` without user approval
+   - Ask: "Should I deploy to Cloudflare Pages?"
+   - Wait for explicit confirmation
+
 ### Worklog
 The `worklog.md` file contains a **reverse chronological** log of development work (newest entries first):
 - **Purpose**: Track what was tried, what worked, and what didn't work
