@@ -16,6 +16,11 @@ export const SITE = {
     text: "Edit page",
     url: "https://github.com/acviana/cloudflare-astro-blog/edit/main/",
   },
+  sourceCode: {
+    enabled: true,
+    text: "View Source",
+    url: "https://github.com/acviana/cloudflare-astro-blog",
+  },
   dynamicOgImage: false,
   dir: "ltr", // "rtl" | "auto"
   lang: "en", // html lang code. Set this empty and default will be "en"
