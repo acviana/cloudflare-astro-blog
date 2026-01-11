@@ -18,6 +18,9 @@ import cloudflare from "@astrojs/cloudflare";
 export default defineConfig({
   site: SITE.website,
   output: "static",
+  redirects: {
+    "/posts": "/posts/page/1",
+  },
   integrations: [
     sitemap({
       filter: page => SITE.showArchives || !page.endsWith("/archives"),

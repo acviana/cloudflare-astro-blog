@@ -66,3 +66,27 @@ During initial setup, we configured for SSR based on assumptions, leading to 500
 - Created this worklog.md file to track development context
 - Updated agents.md with documentation for agents on how to use worklog
 - Purpose: Help rebuild context efficiently in future sessions
+
+### Posts Index Redirect Improvement (23:09)
+
+**Problem:**
+- `/posts` showed "Redirecting from /posts/ to /posts/page/1" message for 2 seconds before redirecting
+- User reported seeing the redirect message which felt like a hack
+
+**Investigation:**
+- Checked Astro routing documentation (https://docs.astro.build/en/guides/routing/#redirects)
+- Original implementation used `return Astro.redirect()` in `/posts/index.astro`
+- For static builds, Astro generates HTML files with meta refresh tags by default
+- The 2-second delay (`content="2;url=..."`) was Astro's default for dynamic redirects
+
+**What Didn't Work:**
+- Dynamic redirect with `Astro.redirect()` in page file - causes visible redirect message with delay
+
+**Solution That Worked:**
+- Removed `src/pages/posts/index.astro` file
+- Added configured redirect in `astro.config.ts`: `redirects: { "/posts": "/posts/page/1" }`
+- Configured redirects use instant redirect (`content="0;url=..."`) instead of 2-second delay
+- This is the **standard Astro pattern** for static site redirects, not a hack
+
+**Key Lesson:**
+For static sites, use configured redirects in `astro.config.ts` instead of dynamic `Astro.redirect()` calls. Configured redirects are instant and cleaner. The meta refresh HTML is standard for static sites - when deployed to production, Cloudflare Pages may handle these differently with proper 301/302 responses.
