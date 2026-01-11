@@ -118,6 +118,27 @@ The `wrangler.toml` file includes:
 
 Current deployment: https://cloudflare-astro-blog.pages.dev
 
+## Documentation for Agents
+
+### Worklog
+The `worklog.md` file contains a chronological log of development work:
+- **Purpose**: Track what was tried, what worked, and what didn't work
+- **Format**: Organized by date (section headings), with subsections for different features/issues
+- **Usage**: Agents should append to this file when:
+  - Attempting new approaches or solutions
+  - Discovering bugs and their fixes
+  - Encountering blockers or limitations
+  - Making configuration changes
+  - Learning lessons that would help future context rebuilding
+- **Detail Level**: Include enough context to understand the problem and solution, but avoid sensitive data
+- **Public**: Assume this file is publicly visible - no API keys, SSH keys, or credentials
+
+### Context Rebuilding
+When resuming work on this project, read:
+1. This `agents.md` file for project overview and architecture
+2. `worklog.md` for recent development history and lessons learned
+3. Relevant source files based on the task at hand
+
 ## Recent Changes
 
 1. **Cloudflare Pages Deployment**: Configured for static site generation and deployed to Cloudflare Pages
@@ -128,6 +149,7 @@ Current deployment: https://cloudflare-astro-blog.pages.dev
 6. **Search**: Client-side search implementation
 7. **LaTeX**: Added color overrides for better visibility
 8. **Card Component**: Updated to pass through data attributes for search functionality
+9. **Worklog**: Created `worklog.md` for tracking development attempts and solutions
 
 ## Configuration Files
 
@@ -137,6 +159,7 @@ Current deployment: https://cloudflare-astro-blog.pages.dev
 - `src/config.ts` - Site configuration (SITE object)
 - `src/styles/global.css` - Global styles including KaTeX overrides
 - `transform-frontmatter.js` - Script used for migrating blog posts (one-time use)
+- `worklog.md` - Development log tracking what was tried (successful and failed attempts)
 
 ## Documentation References
 
