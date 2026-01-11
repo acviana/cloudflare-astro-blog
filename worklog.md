@@ -4,6 +4,34 @@ This file tracks everything attempted during development - what worked and what 
 
 ## Saturday, January 10, 2026
 
+### Migrate Tumblr Blog Posts (23:40)
+
+**Feature Request:**
+- Migrate all posts from old Tumblr blog (theothersideofthescreen-blog.tumblr.com) to Astro blog
+- Include post dates, metadata, images, and proper formatting
+
+**Implementation:**
+- Created Python migration script `migrate_tumblr.py`:
+  - Fetches all posts from Tumblr API with full metadata
+  - Converts HTML to Markdown using html2text library
+  - Downloads images to `public/assets/tumblr/{post-slug}/`
+  - Creates markdown files with naming convention: `YYYY-MM-DD-title.md`
+  - Generates proper frontmatter (author, pubDatetime, title, slug, tags, description, originalUrl)
+- Installed required dependencies: `html2text` and `requests`
+- Ran migration script to process all posts
+- Added `tumblr-blog` tag to all 31 migrated posts for easy filtering
+
+**Result:**
+- ✅ Successfully migrated 31 posts from 2012 (April - September)
+- ✅ All posts in `src/data/blog/` with proper YYYY-MM-DD-title.md naming
+- ✅ Images downloaded to `public/assets/tumblr/`
+- ✅ Each post includes link back to original Tumblr post
+- ✅ All posts tagged with `tumblr-blog` for filtering
+- Posts include technical content: Python, Django, astronomy work, academia
+
+**Key Lesson:**
+Using the Tumblr API directly is much better than trying to scrape HTML. The API provides proper metadata including timestamps, which can be decoded from post IDs. The html2text library works well for converting Tumblr's HTML to Markdown, though some formatting (like tables) may need manual cleanup.
+
 ### Add View Source Link to Footer (23:29)
 
 **Feature Request:**
