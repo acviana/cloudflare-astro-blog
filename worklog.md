@@ -4,6 +4,20 @@ This file tracks everything attempted during development - what worked and what 
 
 ## Saturday, January 10, 2026
 
+### Remove Template Example Posts (23:54)
+
+**Cleanup:**
+- Deleted `src/data/blog/examples/` directory containing 4 template posts:
+  - `example-draft-post.md`
+  - `portfolio-website-development.md`
+  - `tailwind-typography.md`
+  - `terminal-development.md`
+- These were part of the AstroPaper theme and not actual blog content
+
+**Result:**
+- Cleaner blog directory with only real posts
+- Down to 81 actual blog posts (50 from GitHub, 31 from Tumblr)
+
 ### Migrate Tumblr Blog Posts (23:40)
 
 **Feature Request:**
