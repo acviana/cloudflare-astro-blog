@@ -18,15 +18,16 @@ This is an Astro blog using the Astro Paper template, configured for deployment 
 - Posts require: `author`, `pubDatetime`, `title`, `slug`, `draft`, `tags`, `description`
 
 ### Routing (Static Mode)
-- Individual posts: `/posts/[slug].astro` → `/posts/{slug}` (uses `getStaticPaths()`)
-- Paginated list: `/posts/page/[page].astro` → `/posts/page/1`, `/posts/page/2`, etc. (uses `getStaticPaths()`)
-- Posts index: `/posts` → instant redirect to `/posts/page/1` (configured in `astro.config.ts`)
-- Tags: `/tags/[tag]/[...page].astro` → `/tags/{tag}/1`, `/tags/{tag}/2`, etc. (uses `getStaticPaths()`)
+- Individual posts: `/posts/[...slug]/index.astro` → `/posts/{slug}` (uses `getStaticPaths()`)
+- Paginated posts: `/posts/[...page].astro` → `/posts`, `/posts/2`, `/posts/3`, etc. (uses `paginate()`)
+- Tags: `/tags/[tag]/[...page].astro` → `/tags/{tag}`, `/tags/{tag}/2`, etc. (uses `paginate()`)
 
 **Important**: 
-- The pagination route is at `/posts/page/[page]` (not `/posts/[page]`) to avoid route collisions with post slugs
+- Uses Astro's built-in `paginate()` function for automatic pagination handling
+- Page 1 is served at the index route (`/posts` or `/tags/{tag}`) automatically
+- Subsequent pages are numbered (`/posts/2`, `/tags/{tag}/3`, etc.)
+- Astro's route priority prevents collisions between pagination and post slugs
 - All dynamic routes require `getStaticPaths()` for static builds
-- Redirects use configured redirects in `astro.config.ts` for instant, standard behavior
 
 ### LaTeX Support
 - Uses `remark-math` and `rehype-katex`
@@ -170,16 +171,16 @@ When resuming work on this project, read:
 2. **Static Site Mode**: Switched from SSR (`output: "server"`) to static (`output: "static"`)
 3. **Dynamic Routes**: Added `getStaticPaths()` to all dynamic routes for static builds
 4. **Wrangler Setup**: Created `wrangler.toml` with Pages configuration and KV namespace
-5. **Route Structure**: Pagination at `/posts/page/[page]` to prevent route collisions
+5. **Route Structure**: Simplified pagination using Astro's `paginate()` function (`/posts`, `/posts/2`, etc.)
 6. **Search**: Client-side search implementation
 7. **LaTeX**: Added color overrides for better visibility
 8. **Card Component**: Updated to pass through data attributes for search functionality
 9. **Worklog**: Created `worklog.md` for tracking development attempts and solutions
-10. **Redirects**: Using configured redirects in `astro.config.ts` for instant, standard behavior (not file-based redirects)
+10. **Astro Best Practices**: Aligned routing with official AstroPaper template using built-in pagination
 
 ## Configuration Files
 
-- `astro.config.ts` - Astro configuration (static mode, configured redirects, Vite SSR externals for future SSR)
+- `astro.config.ts` - Astro configuration (static mode, Vite SSR externals for future SSR)
 - `wrangler.toml` - Cloudflare Pages configuration with nodejs_compat flag and KV binding
 - `src/content.config.ts` - Content collection schema
 - `src/config.ts` - Site configuration (SITE object)

@@ -2,6 +2,47 @@
 
 This file tracks everything attempted during development - what worked and what didn't. Use dates as section headings in **reverse chronological order** (newest first).
 
+## Sunday, January 11, 2026
+
+### Revert to Standard AstroPaper Routing Pattern (20:40)
+
+**Problem:**
+- Tag pages returning 404 errors  
+- Unnecessary `/page/` component in URLs (`/posts/page/1` instead of `/posts`)
+- Manual pagination implementation instead of using Astro's built-in `paginate()` function
+- Routing pattern didn't match official AstroPaper template
+
+**Investigation:**
+- Reviewed official AstroPaper GitHub repository and live demo
+- Discovered they use `/posts/[...page].astro` NOT `/posts/page/[page].astro`
+- Found we were manually building pagination instead of using Astro's `paginate()` function
+- Confirmed via Astro docs that route collision concern was unfounded
+  - Astro's route priority system handles `/posts/2` (static) vs `/posts/{slug}` (dynamic) correctly
+  - Static routes take precedence over rest parameters
+
+**What Didn't Work:**
+- Our initial assumption that `/page/` was needed to prevent route collisions
+- Manual pagination implementation (75+ lines vs 33 lines with `paginate()`)
+- Custom URL construction and page object building
+
+**Solution That Worked:**
+1. Replaced `/posts/page/[page].astro` with `/posts/[...page].astro` using `paginate()`
+2. Moved `/posts/[slug].astro` → `/posts/[...slug]/index.astro` for consistency
+3. Updated `/tags/[tag]/[...page].astro` to use `paginate()` (was using manual pagination)
+4. Updated all links to use new URLs: `/posts` instead of `/posts/page/1`
+5. Updated breadcrumb logic to handle `/posts` vs `/posts/2`
+6. Removed redirect configuration (no longer needed)
+
+**Result:**
+- ✅ Tag pages now work: `/tags/python`, `/tags/python/2`, etc.
+- ✅ Cleaner URLs: `/posts`, `/posts/2` instead of `/posts/page/1`, `/posts/page/2`
+- ✅ Much simpler code: Using Astro's built-in pagination (33 lines vs 74 lines)
+- ✅ Consistent with official AstroPaper template and Astro best practices
+- ✅ Automatic handling of edge cases by `paginate()` function
+
+**Key Lesson:**
+Always check the official template and Astro documentation before deviating from standard patterns. Astro's built-in `paginate()` function handles pagination elegantly - don't reinvent the wheel! The "route collision" concern was based on misunderstanding Astro's route priority system. When in doubt, trust the framework's design.
+
 ## Saturday, January 10, 2026
 
 ### Remove Template Example Posts (23:54)

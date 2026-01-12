@@ -18,9 +18,6 @@ import cloudflare from "@astrojs/cloudflare";
 export default defineConfig({
   site: SITE.website,
   output: "static",
-  redirects: {
-    "/posts": "/posts/page/1",
-  },
   integrations: [
     sitemap({
       filter: page => SITE.showArchives || !page.endsWith("/archives"),
@@ -56,7 +53,22 @@ export default defineConfig({
       exclude: ["@resvg/resvg-js"],
     },
     ssr: {
-      external: ["node:buffer", "node:fs", "node:path", "node:url", "node:module", "node:child_process", "node:stream", "node:os", "node:crypto", "fs", "path", "url", "module", "child_process"],
+      external: [
+        "node:buffer",
+        "node:fs",
+        "node:path",
+        "node:url",
+        "node:module",
+        "node:child_process",
+        "node:stream",
+        "node:os",
+        "node:crypto",
+        "fs",
+        "path",
+        "url",
+        "module",
+        "child_process",
+      ],
     },
   },
   image: {
