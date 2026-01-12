@@ -6,7 +6,7 @@ slug: im-excited-i-finally-have-a-reason-to-learn
 featured: false
 draft: false
 tags:
-  - tumblr-blog
+  - source-tumblr-blog
   - javascript
   - photo
 description: "I'm excited I finally have a reason to learn JavaScript at work. The first thing, per the suggestion of my friend who does UX,..."

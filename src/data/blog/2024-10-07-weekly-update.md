@@ -8,6 +8,7 @@ tags:
   - weekly-update
   - python
   - math
+  - source-nextra-blog
 description: Sabbatical Week 15 - General metric spaces, Levenshtein, Hamming, and Jaccard distances plus links on Python 3.13, inline functions, and The MANIAC
 ---
 

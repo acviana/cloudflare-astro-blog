@@ -6,7 +6,7 @@ slug: hipster-passwords
 featured: false
 draft: false
 tags:
-  - tumblr-blog
+  - source-tumblr-blog
   - security
   - chat
 description: "Hipster Passwords"

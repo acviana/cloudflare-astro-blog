@@ -6,7 +6,7 @@ slug: sure-i-trust-google-to-index-the-contents-of-all
 featured: false
 draft: false
 tags:
-  - tumblr-blog
+  - source-tumblr-blog
   - quote
 description: "Sure, I trust Google to index the contents of all my files. Why not?"
 originalUrl: https://theothersideofthescreen-blog.tumblr.com/post/21722321525/sure-i-trust-google-to-index-the-contents-of-all

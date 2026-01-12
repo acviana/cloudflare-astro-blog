@@ -6,7 +6,7 @@ slug: just-registered-for-scipy2012-this-will-be-my
 featured: false
 draft: false
 tags:
-  - tumblr-blog
+  - source-tumblr-blog
   - python
   - SciPy
   - Austin

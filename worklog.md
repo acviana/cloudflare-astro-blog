@@ -4,6 +4,42 @@ This file tracks everything attempted during development - what worked and what 
 
 ## Sunday, January 11, 2026
 
+### Add Source Tags to Organize Posts by Origin (23:17)
+
+**Problem:**
+- All 81 blog posts came from 3 different sources (Tumblr, GitHub Pages, Nextra) but weren't tagged
+- Needed a way to identify and filter posts by their original platform
+- 2 posts had malformed YAML tags that prevented proper tagging
+
+**Investigation:**
+- Reviewed all 81 posts to understand distribution:
+  - 31 posts from Tumblr blog (2012)
+  - 20 posts from GitHub Pages blog (2013-2017, using Pelican)
+  - 30 posts from Nextra blog (2022-2025)
+- Found 2 posts with malformed YAML (single-quoted multi-line strings instead of list)
+- Discovered `github-blog` tag was incorrectly quoted in YAML
+
+**Solution:**
+1. Added `source-nextra-blog` tag to all 30 posts from 2022-2025
+2. Renamed `nextra-blog` → `source-nextra-blog`
+3. Renamed `github-blog` → `source-github-blog` (handled quoted tag strings)
+4. Renamed `tumblr-blog` → `source-tumblr-blog`
+5. Fixed 2 posts with malformed YAML:
+   - `2013-12-10-a-basic-automation-setup-2.md` - Fixed single-quoted multi-line tag list
+   - `2014-04-07-numpy-arrays-and-sql.md` - Added missing source tag
+
+**Result:**
+- ✅ All 81 posts now have a source tag
+- ✅ Created 3 new tag pages:
+  - `/tags/source-nextra-blog/` (3 pages, 30 posts)
+  - `/tags/source-github-blog/` (2 pages, 20 posts)
+  - `/tags/source-tumblr-blog/` (4 pages, 31 posts)
+- ✅ Fixed malformed YAML in 2 legacy posts
+- ✅ Consistent naming with `source-` prefix for provenance tags
+
+**Key Lesson:**
+Using a consistent prefix (`source-`) for provenance/origin tags makes it easy to distinguish between topic tags and metadata tags. Python scripts with regex are effective for bulk tag operations across many markdown files, especially when handling edge cases like quoted strings and malformed YAML.
+
 ### Revert to Standard AstroPaper Routing Pattern (20:40)
 
 **Problem:**

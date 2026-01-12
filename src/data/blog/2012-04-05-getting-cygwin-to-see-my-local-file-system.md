@@ -6,7 +6,7 @@ slug: getting-cygwin-to-see-my-local-file-system
 featured: false
 draft: false
 tags:
-  - tumblr-blog
+  - source-tumblr-blog
   - cygwin
   - windows
   - text

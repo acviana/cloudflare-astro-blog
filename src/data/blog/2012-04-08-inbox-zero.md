@@ -6,7 +6,7 @@ slug: inbox-zero
 featured: false
 draft: false
 tags:
-  - tumblr-blog
+  - source-tumblr-blog
   - email
   - text
 description: "Inbox Zero"

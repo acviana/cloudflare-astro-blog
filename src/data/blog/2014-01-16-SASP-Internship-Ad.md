@@ -6,7 +6,7 @@ slug: 2014-01-16-SASP-Internship-Ad
 draft: false
 tags:
   - astronomy
-  - "github-blog"
+  - source-github-blog
 description: Call for submissions for my internship opportunity at STScI
 ---
 

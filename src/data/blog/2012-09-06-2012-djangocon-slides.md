@@ -6,7 +6,7 @@ slug: 2012-djangocon-slides
 featured: false
 draft: false
 tags:
-  - tumblr-blog
+  - source-tumblr-blog
   - python
   - django
   - text

@@ -6,6 +6,7 @@ slug: 2024-01-24-the-data-chief-podcast-episode
 draft: false
 tags:
   - leadership
+  - source-nextra-blog
 description: Some thoughts on appearing on a professionally produced podcast
 ---
 

@@ -7,7 +7,7 @@ draft: false
 tags:
   - pelican
   - meta
-  - "github-blog"
+  - source-github-blog
 description: Starting a Pelican-based GitHub blog
 ---
 > the trouble with poetry is  

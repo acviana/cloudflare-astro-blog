@@ -6,7 +6,7 @@ slug: paying-bills-online
 featured: false
 draft: false
 tags:
-  - tumblr-blog
+  - source-tumblr-blog
   - UX
   - text
 description: "Paying Bills Online"

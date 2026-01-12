@@ -8,12 +8,13 @@ tags:
   - python
   - code
   - psf
+  - source-github-blog
 description: Binary encoding in SQL for NumPy objects
 ---
 
-Lately I've been doing a lot (millions) of calculations involving small NumPy arrays of HST PSFs. Naturally, I wanted to save the output of these calculations to for later analysis. I put all the results in a MySQL database so I could easily select subsets of the data for future work (by filter, image, date, etc.). However, sometimes the outputs of these calculations are arrays themselves. This left me searching for a good way to save these NumPy arrays to a SQL database. 
+Lately I've been doing a lot (millions) of calculations involving small NumPy arrays of HST PSFs. Naturally, I wanted to save the output of these calculations to for later analysis. I put all the results in a MySQL database so I could easily select subsets of the data for future work (by filter, image, date, etc.). However, sometimes the outputs of these calculations are arrays themselves. This left me searching for a good way to save these NumPy arrays to a SQL database.
 
-Before I dive into this it's worth noting that there are non-SQL storage options that are specifically designed for use cases like this such as [PyTables](http://www.pytables.org/moin) or [HDF5](http://en.wikipedia.org/wiki/Hierarchical_Data_Format). But, my project was already pretty tightly integrated with SQLAlchemy and I wasn't concerned with having readable, hierarchical, or queryable array information, which are the strengths of these other storage systems as I understand them. The queries I'm going to write are going to be constructed on other fields and the data is only going to analyzed once it had been read back in as a Numpy array in Python. So, all I really needed was a way to go between NumPy and some SQL data type.  
+Before I dive into this it's worth noting that there are non-SQL storage options that are specifically designed for use cases like this such as [PyTables](http://www.pytables.org/moin) or [HDF5](http://en.wikipedia.org/wiki/Hierarchical_Data_Format). But, my project was already pretty tightly integrated with SQLAlchemy and I wasn't concerned with having readable, hierarchical, or queryable array information, which are the strengths of these other storage systems as I understand them. The queries I'm going to write are going to be constructed on other fields and the data is only going to analyzed once it had been read back in as a Numpy array in Python. So, all I really needed was a way to go between NumPy and some SQL data type.
 
 ## Starting with String
 
@@ -65,4 +66,3 @@ numpy_array = numpy.fromstring(byte_array)
 ```
 
 Ta-Da! This does what I wanted and in my opinion has that intangible "pythonic" feel to it. The default NumPy datatype is `numpy.float64` but you can specify others with the `dtype` parameter. While this solution met my needs that are probably many other ways to accomplish this, feel free to tell me about them in the comments.
-

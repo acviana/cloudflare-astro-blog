@@ -6,7 +6,7 @@ slug: pain-with-the-windows-command-prompt
 featured: false
 draft: false
 tags:
-  - tumblr-blog
+  - source-tumblr-blog
   - windows
   - dropbox
   - SQLite

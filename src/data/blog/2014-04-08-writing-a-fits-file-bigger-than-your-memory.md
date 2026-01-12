@@ -8,7 +8,7 @@ tags:
   - astronomy
   - programming
   - python
-  - "github-blog"
+  - source-github-blog
 description: Getting in the weeds with the FITS file format
 ---
 

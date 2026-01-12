@@ -5,9 +5,10 @@ title: A Basic Automation Setup for Astronomy - Part 2
 slug: 2013-12-10-a-basic-automation-setup-2
 draft: false
 tags:
-  - 'code
+  - code
   - devops
-  - python'
+  - python
+  - source-github-blog
 description: Part 2 of a automation pipeline for astronomy tasks
 ---
 
@@ -92,4 +93,3 @@ def main():
 if __name__ == '__main__':
  main()
 ```
-

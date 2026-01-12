@@ -6,7 +6,7 @@ slug: benchmarking-python-sets-comprehensions-and
 featured: false
 draft: false
 tags:
-  - tumblr-blog
+  - source-tumblr-blog
   - python
   - matplotlib
   - cProfile

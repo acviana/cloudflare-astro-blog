@@ -8,7 +8,7 @@ tags:
   - python
   - presentations
   - programming
-  - "github-blog"
+  - source-github-blog
 description: Exploring Python's build-in methods
 ---
 

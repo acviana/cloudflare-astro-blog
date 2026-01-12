@@ -9,6 +9,7 @@ tags:
   - math
   - floating-point
   - cs
+  - source-nextra-blog
 description: Down a rabbit hole of floating point numbers
 ---
 

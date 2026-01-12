@@ -7,6 +7,7 @@ draft: false
 tags:
   - raspberry-pi
   - linux
+  - source-nextra-blog
 description: Rebuilding my Raspberry Pi, Pi-Hole, and PADD configuration from scratch.
 ---
 

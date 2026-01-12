@@ -7,7 +7,7 @@ draft: false
 tags:
   - programming
   - python
-  - "github-blog"
+  - source-github-blog
 description: "I made a metaclass in Python (but should I have?)"
 ---
 

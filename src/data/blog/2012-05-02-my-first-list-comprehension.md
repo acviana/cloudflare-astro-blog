@@ -6,7 +6,7 @@ slug: my-first-list-comprehension
 featured: false
 draft: false
 tags:
-  - tumblr-blog
+  - source-tumblr-blog
   - python
   - text
 description: "My First List Comprehension"

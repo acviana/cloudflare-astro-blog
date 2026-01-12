@@ -8,7 +8,7 @@ tags:
   - python
   - programming
   - presentations
-  - "github-blog"
+  - source-github-blog
 description: "A short presentation about how data is encoded over networks"
 ---
 

@@ -7,7 +7,7 @@ draft: false
 tags:
   - programming
   - python
-  - "github-blog"
+  - source-github-blog
 description: Digging into how the in operator works
 ---
 

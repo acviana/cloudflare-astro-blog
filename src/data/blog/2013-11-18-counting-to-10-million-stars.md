@@ -8,7 +8,7 @@ tags:
   - astronomy
   - python
   - programming
-  - "github-blog"
+  - source-github-blog
 description: Working with large datasets of stellar PSFs
 ---
 

@@ -8,7 +8,7 @@ slug: finding-the-right-plot-i-really-like-data
 featured: false
 draft: false
 tags:
-  - tumblr-blog
+  - source-tumblr-blog
   - python
   - matplotlib
   - visualization

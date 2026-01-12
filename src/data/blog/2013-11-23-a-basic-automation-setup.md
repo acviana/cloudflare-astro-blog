@@ -8,7 +8,7 @@ tags:
   - programming
   - devops
   - astronomy
-  - "github-blog"
+  - source-github-blog
 description: A barebones automation setup for astronomy pipelines
 ---
 

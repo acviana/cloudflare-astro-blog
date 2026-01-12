@@ -8,7 +8,7 @@ slug: i-just-wanted-to-share-a-quick-and-dirty
 featured: false
 draft: false
 tags:
-  - tumblr-blog
+  - source-tumblr-blog
   - work
   - astronomy
   - visualization

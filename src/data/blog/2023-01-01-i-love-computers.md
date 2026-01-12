@@ -7,6 +7,7 @@ draft: false
 tags:
   - dev
   - 250-words
+  - source-nextra-blog
 description: Working on computers for fun ... and not for profit
 ---
 

@@ -10,6 +10,7 @@ tags:
   - programming
   - large-language-models
   - artifical-intelligence
+  - source-nextra-blog
 description: Sabbatical Week 11 - evergreen notes, LLMs, and programming taste
 ---
 

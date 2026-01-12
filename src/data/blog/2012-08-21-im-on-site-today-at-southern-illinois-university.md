@@ -6,7 +6,7 @@ slug: im-on-site-today-at-southern-illinois-university
 featured: false
 draft: false
 tags:
-  - tumblr-blog
+  - source-tumblr-blog
   - photo
 description: "I'm on-site today at Southern Illinois University - Edwardsville working on Space Telescope's collaboration with..."
 originalUrl: https://theothersideofthescreen-blog.tumblr.com/post/29919504208/im-on-site-today-at-southern-illinois-university

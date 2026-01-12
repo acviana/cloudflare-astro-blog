@@ -9,6 +9,7 @@ tags:
   - dev
   - crystal
   - programming-languages
+  - source-nextra-blog
 description: A quick peek at at the Crystal programming language
 ---
 

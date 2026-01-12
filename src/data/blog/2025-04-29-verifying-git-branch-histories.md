@@ -7,6 +7,7 @@ draft: false
 tags:
   - programming
   - git
+  - source-nextra-blog
 description: Rebuilding and checking a git branch
 ---
 

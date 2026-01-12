@@ -6,7 +6,7 @@ slug: overly-honest-commenting-on-hitting-accept-on-a
 featured: false
 draft: false
 tags:
-  - tumblr-blog
+  - source-tumblr-blog
   - GitHub
   - photo
 description: "Overly honest commenting on hitting 'accept' on a GitHub pull request for the first time."

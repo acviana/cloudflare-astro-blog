@@ -11,6 +11,7 @@ tags:
   - proofs
   - large-language-models
   - artifical-intelligence
+  - source-nextra-blog
 description: Sabbatial Week 10 - structured outputs for LLMs and proving the binomial theorem
 ---
 

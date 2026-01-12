@@ -6,6 +6,7 @@ slug: 2025-04-01-oblique-strategies-in-the-terminal
 draft: false
 tags:
   - programming
+  - source-nextra-blog
 description: Building a terminal splashscreen with Brian Eno's Oblique Strategies
 ---
 

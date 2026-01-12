@@ -6,7 +6,7 @@ slug: 2013-11-21-inconclusive-data
 draft: false
 tags:
   - astronomy
-  - "github-blog"
+  - source-github-blog
 description: Error bars change the interpretation of my stellar PSF project
 ---
 

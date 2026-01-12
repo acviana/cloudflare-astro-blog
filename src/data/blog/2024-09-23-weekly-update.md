@@ -10,6 +10,7 @@ tags:
   - obsidian
   - vim
   - weekly-update
+  - source-nextra-blog
 description: Sabbatical Week 13 - python syntax, Obsidian dataview, LazyVim configs, and python notebooks
 ---
 

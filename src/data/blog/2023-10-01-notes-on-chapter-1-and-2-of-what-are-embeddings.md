@@ -10,6 +10,7 @@ tags:
   - ai
   - papers
   - linear-algebra
+  - source-nextra-blog
 description: Notes on Chapter 1 and 2 of Vicki Boykis's "What Are Embeddings" paper
 ---
 

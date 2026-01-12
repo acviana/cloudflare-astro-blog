@@ -6,7 +6,7 @@ slug: 2013-11-18-mtpipeline-ddrf
 draft: false
 tags:
   - astronomy
-  - "github-blog"
+  - source-github-blog
 description: My reaseach grant proposal for a Hubble Space Telescope moving target pipeline
 ---
 

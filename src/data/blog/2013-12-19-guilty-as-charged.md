@@ -7,7 +7,7 @@ draft: false
 tags:
   - programming
   - humor
-  - "github-blog"
+  - source-github-blog
 description: Just a little git humor
 ---
 

@@ -10,6 +10,7 @@ tags:
   - sqlite
   - duckdb
   - papers
+  - source-nextra-blog
 description: Diving into a recent paper on running OLAP workloads on my favorite database
 ---
 

@@ -7,6 +7,7 @@ draft: false
 tags:
   - math
   - meta
+  - source-nextra-blog
 description: Playing around with LaTeX formuals for fun
 ---
 

@@ -6,6 +6,7 @@ slug: 2023-08-12-the-best-math-advice-i-ever-got
 draft: false
 tags:
   - math
+  - source-nextra-blog
 description: On turning hieroglyphics into pictures
 ---
 

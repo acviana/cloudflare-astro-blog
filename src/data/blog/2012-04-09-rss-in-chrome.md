@@ -6,7 +6,7 @@ slug: rss-in-chrome
 featured: false
 draft: false
 tags:
-  - tumblr-blog
+  - source-tumblr-blog
   - RSS
   - text
 description: "RSS in Chrome"

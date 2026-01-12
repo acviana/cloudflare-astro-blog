@@ -7,6 +7,7 @@ draft: false
 tags:
   - blog
   - math
+  - source-nextra-blog
 description: Working through problem 2(c) from chapter 1 of Halmos's "Finite Dimensional Vector Spaces"
 ---
 

@@ -6,7 +6,7 @@ slug: ls-in-the-windows-command-prompt
 featured: false
 draft: false
 tags:
-  - tumblr-blog
+  - source-tumblr-blog
   - Windows
   - Cygwin
   - text

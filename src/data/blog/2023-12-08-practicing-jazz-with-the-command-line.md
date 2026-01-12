@@ -11,6 +11,7 @@ tags:
   - large-language-models
   - music
   - bash
+  - source-nextra-blog
 description: Using linux command line tools for jazz ear training
 ---
 

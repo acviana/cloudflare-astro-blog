@@ -11,6 +11,7 @@ tags:
   - computer-science
   - proofs
   - duckdb
+  - source-nextra-blog
 description: Week 6 of my sabbatical - math proofs, LeetCode, DuckDB, and networking
 ---
 

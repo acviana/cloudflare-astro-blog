@@ -6,7 +6,7 @@ slug: on-leaving-academia-ars-experientia
 featured: false
 draft: false
 tags:
-  - tumblr-blog
+  - source-tumblr-blog
   - academia
   - education
   - science

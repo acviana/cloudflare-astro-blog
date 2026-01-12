@@ -6,7 +6,7 @@ slug: the-academic-system-does-not-respect
 featured: false
 draft: false
 tags:
-  - tumblr-blog
+  - source-tumblr-blog
   - quote
 description: "The academic system does not respect practitioners’ knowledge (or timescales). Practitioners don’t understand that computer..."
 originalUrl: https://theothersideofthescreen-blog.tumblr.com/post/30329356162/the-academic-system-does-not-respect

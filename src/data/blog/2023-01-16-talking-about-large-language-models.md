@@ -10,6 +10,7 @@ tags:
   - large-language-models
   - machine-learning
   - papers
+  - source-nextra-blog
 description: Notes on Murray Shanahan's "Talking About Larger Language Models"
 ---
 

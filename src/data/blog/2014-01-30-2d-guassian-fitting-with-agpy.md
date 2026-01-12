@@ -7,7 +7,7 @@ draft: false
 tags:
   - python
   - programming
-  - "github-blog"
+  - source-github-blog
   - astronomy
 description: Fitting 2 dimensionaly Gaussians with a small open source package
 ---

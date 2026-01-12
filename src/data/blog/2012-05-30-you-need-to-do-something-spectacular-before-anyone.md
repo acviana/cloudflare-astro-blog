@@ -6,7 +6,7 @@ slug: you-need-to-do-something-spectacular-before-anyone
 featured: false
 draft: false
 tags:
-  - tumblr-blog
+  - source-tumblr-blog
   - quote
 description: "You need to do something spectacular before anyone knows you;re doing anything at all."
 originalUrl: https://theothersideofthescreen-blog.tumblr.com/post/24068355719/you-need-to-do-something-spectacular-before-anyone

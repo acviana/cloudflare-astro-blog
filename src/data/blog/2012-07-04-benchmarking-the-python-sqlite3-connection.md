@@ -6,7 +6,7 @@ slug: benchmarking-the-python-sqlite3-connection
 featured: false
 draft: false
 tags:
-  - tumblr-blog
+  - source-tumblr-blog
   - python
   - SQLite
   - text

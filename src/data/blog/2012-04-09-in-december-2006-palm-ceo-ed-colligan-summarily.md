@@ -6,7 +6,7 @@ slug: in-december-2006-palm-ceo-ed-colligan-summarily
 featured: false
 draft: false
 tags:
-  - tumblr-blog
+  - source-tumblr-blog
   - smartphones
   - apple
   - quote

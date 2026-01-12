@@ -9,6 +9,7 @@ tags:
   - 200-words
   - coconut
   - programming-languages
+  - source-nextra-blog
 description: A functional programming language that compiles to Python
 ---
 

@@ -7,7 +7,7 @@ draft: false
 tags:
   - python
   - programming
-  - "github-blog"
+  - source-github-blog
 description: Using set membership to skip disk reads
 ---
 

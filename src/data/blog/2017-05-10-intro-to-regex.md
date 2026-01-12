@@ -6,7 +6,7 @@ slug: 2017-05-10-intro-to-regex
 draft: false
 tags:
   - presentations
-  - "github-blog"
+  - source-github-blog
 description: A presentation on using Regex for analysts
 ---
 <center>

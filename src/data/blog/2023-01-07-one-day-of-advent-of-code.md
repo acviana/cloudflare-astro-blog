@@ -8,6 +8,7 @@ tags:
   - dev
   - 500-words
   - advent-of-code
+  - source-nextra-blog
 description: Working on Advent of Code and learning to take only what you need from something
 ---
 

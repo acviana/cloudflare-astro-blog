@@ -11,6 +11,7 @@ tags:
   - computer-science
   - proofs
   - duckdb
+  - source-nextra-blog
 description: Sabbatical Week 7 - Some in-person events plus more proofs, LeetCode, and DuckDB
 ---
 

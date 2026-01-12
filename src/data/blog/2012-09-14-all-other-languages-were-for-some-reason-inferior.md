@@ -6,7 +6,7 @@ slug: all-other-languages-were-for-some-reason-inferior
 featured: false
 draft: false
 tags:
-  - tumblr-blog
+  - source-tumblr-blog
   - python
   - quote
 description: "All other languages were for some reason inferior, and as a Python programmer, I was the member of an elite cabal of superhuman..."

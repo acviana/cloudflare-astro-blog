@@ -6,7 +6,7 @@ slug: on-the-other-side-of-the-screen-it-all-looks-so
 featured: false
 draft: false
 tags:
-  - tumblr-blog
+  - source-tumblr-blog
   - Quotes
   - quote
 description: "On the other side of the screen, it all looks so easy."

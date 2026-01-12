@@ -11,6 +11,7 @@ tags:
   - proofs
   - large-language-models
   - artifical-intelligence
+  - source-nextra-blog
 description: Sabbatical Week 8 - some web scraping and prompt engineering
 ---
 

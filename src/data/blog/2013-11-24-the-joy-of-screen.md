@@ -6,7 +6,7 @@ slug: 2013-11-24-the-joy-of-screen
 draft: false
 tags:
   - devops
-  - "github-blog"
+  - source-github-blog
 description: Using the screen command line untility to manage remote sessions
 ---
 

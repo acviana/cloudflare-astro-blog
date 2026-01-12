@@ -9,6 +9,7 @@ tags:
   - python
   - math
   - machine-learning
+  - source-nextra-blog
 description: Sabbatical Week 20 - Python structural pattern matchin and package logging, uv in Docker, inverse reinforcement learning, and Cantor's theory of cardinality
 ---
 

@@ -9,6 +9,7 @@ tags:
   - arch
   - manjaro
   - dev
+  - source-nextra-blog
 description: First steps with Arch
 ---
 

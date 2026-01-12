@@ -8,7 +8,7 @@ slug: just-had-the-same-thought-this-morning-via
 featured: false
 draft: false
 tags:
-  - tumblr-blog
+  - source-tumblr-blog
   - photo
 description: "Just had the same thought this morning.
 

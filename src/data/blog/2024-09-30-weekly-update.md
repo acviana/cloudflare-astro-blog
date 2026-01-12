@@ -10,6 +10,7 @@ tags:
   - meta
   - uv
   - weekly-update
+  - source-nextra-blog
 description: Sabbatical Week 14 - Removing sensitive content from your git history, framework and title format updates for the blog, and new tools I've started using over the last 3 months.
 ---
 

@@ -6,7 +6,7 @@ slug: 2013-11-20-the-first-thousand-psfs
 draft: false
 tags:
   - astronomy
-  - "github-blog"
+  - source-github-blog
 description: Plotting one thousand stellar PSFs
 ---
 

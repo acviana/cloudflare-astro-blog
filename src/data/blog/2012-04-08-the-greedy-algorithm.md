@@ -6,7 +6,7 @@ slug: the-greedy-algorithm
 featured: false
 draft: false
 tags:
-  - tumblr-blog
+  - source-tumblr-blog
   - algorithm
   - text
 description: "The Greedy Algorithm"

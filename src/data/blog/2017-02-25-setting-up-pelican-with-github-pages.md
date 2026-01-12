@@ -8,7 +8,7 @@ tags:
   - python
   - meta
   - programming
-  - "github-blog"
+  - source-github-blog
 description: Obligatory metapost on setting up a blog
 ---
 
