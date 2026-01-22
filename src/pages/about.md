@@ -5,7 +5,7 @@ title: "About"
 
 ## Alex C. Viana
 
-I'm an software engineering leader with a background in data, math, and scientific research. This blog is my notes and reflections on topics I've found interesting over my career.
+I'm a software engineering leader with a background in data, math, and scientific research. This blog is my notes and reflections on topics I've found interesting over my career.
 
 If you want to get in touch you can find me here:
 
