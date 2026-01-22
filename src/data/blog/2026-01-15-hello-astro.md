@@ -16,7 +16,7 @@ I'm really happy with the update! My blog now has search, a dedicated tags page,
 
 ## 14 years and 4 blogs in one place
 
-This is my 4th blog going as far back as 2012. I started tech blogging on Tumblr (!!), then transitioned to the Python Pelican framework hosted on GitHub.io, and my last blog was built with the Nextra framework and hosted on Vercel.
+This is my 4th blog going as far back as 2012. I started tech blogging on [Tumblr](https://www.tumblr.com/theothersideofthescreen-blog) (!!), then transitioned to the Python Pelican framework hosted on [GitHub.io](http://acviana.github.io/), and my last blog was built with the Nextra framework and hosted on [Vercel](https://vercel-nextjs-blog-rose.vercel.app/).
 
 I started the process of collecting some of my previous writing in my last blog iteration. As part of this migration I finished that process and have now collected all my previous blog posts in one place for the first time. All my blogs posts are now tagged with `source-*` so you can see what came from where.
 
