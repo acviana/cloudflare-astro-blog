@@ -2,6 +2,50 @@
 
 This file tracks everything attempted during development - what worked and what didn't. Use dates as section headings in **reverse chronological order** (newest first).
 
+## Wednesday, January 22, 2026
+
+### Remove Unused Cloudflare Adapter Import (00:00)
+
+**Problem:**
+- Build warnings showing unused import: `'cloudflare' is declared but its value is never read`
+- The Cloudflare adapter was imported but not used since the site is in static mode (`output: "static"`)
+- Left over from initial SSR configuration attempt
+
+**Investigation:**
+- Reviewed `astro.config.ts` line 15: `import cloudflare from "@astrojs/cloudflare";`
+- Confirmed the adapter is never referenced in the config
+- Static mode doesn't require the Cloudflare adapter - it's only needed for SSR mode
+
+**Solution:**
+- Removed the unused import from `astro.config.ts`
+- Updated documentation in `AGENTS.md` to clarify adapter is only for SSR
+- Updated `worklog.md` with this change
+
+**Result:**
+- ✅ Build warnings eliminated
+- ✅ Cleaner configuration file
+- ✅ Documentation updated to reflect current architecture
+- ✅ No functional changes - site remains in static mode
+
+**Key Lesson:**
+Clean up unused imports left over from architectural changes. The Cloudflare adapter (`@astrojs/cloudflare`) is only needed when using `output: "server"` or `output: "hybrid"`. For static sites (`output: "static"`), the adapter should not be imported.
+
+### Grammar Fixes in Blog Content (23:56)
+
+**Changes:**
+- Fixed "an software engineer" → "a software engineer" on landing page (`src/pages/index.astro`)
+- Fixed "an software engineer" → "a software engineer" on about page (`src/pages/about.md`)
+- Added links to previous blog platforms in Hello Astro post (Tumblr, GitHub.io, Vercel)
+- Fixed multiple typos in Hello Astro post:
+  - "once place" → "one place"
+  - "I started on tech blogging Tumblr" → "I started tech blogging on Tumblr"
+  - "ton of time" → "a ton of time"
+  - "prefect project" → "perfect project"
+
+**Result:**
+- ✅ Corrected grammatical errors across site
+- ✅ Improved readability and professionalism
+
 ## Sunday, January 11, 2026
 
 ### Add Source Tags to Organize Posts by Origin (23:17)

@@ -59,6 +59,7 @@ Initially configured for SSR with Cloudflare Workers, but switched to static bec
 - `wrangler.toml` includes `nodejs_compat` flag and SESSION KV binding (for future SSR if needed)
 - Currently deployed as static site, so these settings are not actively used
 - `astro.config.ts` includes Vite SSR externals for Node.js modules (not used in static mode)
+- **Cloudflare adapter**: The `@astrojs/cloudflare` adapter is NOT imported in static mode - it's only needed for `output: "server"` or `output: "hybrid"`
 
 ### Frontmatter Format
 Posts migrated from Next.js blog use this frontmatter:
@@ -180,7 +181,7 @@ When resuming work on this project, read:
 
 ## Configuration Files
 
-- `astro.config.ts` - Astro configuration (static mode, Vite SSR externals for future SSR)
+- `astro.config.ts` - Astro configuration (static mode, no Cloudflare adapter import needed)
 - `wrangler.toml` - Cloudflare Pages configuration with nodejs_compat flag and KV binding
 - `src/content.config.ts` - Content collection schema
 - `src/config.ts` - Site configuration (SITE object)
@@ -218,7 +219,16 @@ Checking the official Cloudflare and Astro documentation revealed that **static 
 
 ### If switching back to SSR mode
 If you need to switch back to SSR (`output: "server"`):
-1. Uncomment the Cloudflare adapter in `astro.config.ts`
+1. Add the Cloudflare adapter import and configuration in `astro.config.ts`:
+   ```typescript
+   import cloudflare from "@astrojs/cloudflare";
+   
+   export default defineConfig({
+     output: "server",
+     adapter: cloudflare(),
+     // ... rest of config
+   });
+   ```
 2. Remove `getStaticPaths()` from dynamic routes (they'll use on-demand rendering)
 3. Ensure `wrangler.toml` has `nodejs_compat` flag and `pages_build_output_dir = "./dist"`
 4. Deploy with `npx wrangler pages deploy dist`
